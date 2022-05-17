@@ -1,0 +1,46 @@
+{
+    "124": {
+        "ID": 124,
+        "NAME": "Item",
+        "DESCRIPTION": "Some item",
+        "QUANTITY": 100,
+        "TAGS": [
+            "NEW",
+            "PRODUCE",
+            "VEGETARIAN"
+        ]
+    },
+    "123": {
+        "ID": 123,
+        "NAME": "Item",
+        "DESCRIPTION": "Some item",
+        "QUANTITY": 100,
+        "TAGS": [
+            "NEW",
+            "PRODUCE",
+            "VEGETARIAN"
+        ]
+    },
+    "125": {
+        "ID": 125,
+        "NAME": "Item",
+        "DESCRIPTION": "Some item",
+        "QUANTITY": 100,
+        "TAGS": [
+            "NEW",
+            "PRODUCE",
+            "VEGETARIAN"
+        ]
+    },
+    "126": {
+        "ID": "126",
+        "NAME": "Item",
+        "DESCRIPTION": "Some item",
+        "QUANTITY": 100,
+        "TAGS": [
+            "NEW",
+            "PRODUCE",
+            "VEGETARIAN"
+        ]
+    }
+}
