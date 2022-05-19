@@ -28,6 +28,7 @@ def create():
         json.dump(data, f, indent=4, ensure_ascii=False,)
     return request.json
 
+# Usage: POST with new data
 @app.route('/update', methods = ['POST'])
 def update():
     if request.content_type != 'application/json':
@@ -46,6 +47,7 @@ def update():
 # KEY : ITEM ID
 # VALUE: LIST OF DELETED VERSIONS OF ITEMS
 
+# Usage: POST with ID of object to delete and COMMENT
 @app.route('/delete', methods = ['POST'])
 def delete():
     if request.content_type != 'application/json':
@@ -61,13 +63,14 @@ def delete():
     with open('app/data/deleted.json', 'r+', encoding='utf-8') as d:
         deleted = json.load(d)
         if res['ID'] in deleted:
-            deleted[res['ID']].append(res)
+            deleted[res['ID']].append({'DATA': res, 'COMMENT' : request.json['COMMENT']})
         else:
-            deleted[res['ID']] = [res]
+            deleted[res['ID']] = [{'DATA': res, 'COMMENT': request.json['COMMENT']}]
         d.seek(0)
         json.dump(deleted, d, indent=4, ensure_ascii=False)
     return res
 
+# Usage: POST with id of object to restore, index is optional as stores history
 @app.route('/restore', methods = ['POST'])
 def restore():
     if request.content_type != 'application/json':
@@ -75,7 +78,7 @@ def restore():
     with open('app/data/deleted.json', 'r+', encoding='utf-8') as d:
         deleted = json.load(d)
         if request.json['ID'] in deleted:
-            r = deleted[request.json['ID']].pop(request.json['INDEX']) if 'INDEX' in request.json else deleted[request.json['ID']].pop(0)
+            r = deleted[request.json['ID']].pop(request.json['INDEX'])['DATA'] if 'INDEX' in request.json else deleted[request.json['ID']].pop(0)['DATA']
         d.seek(0)
         d.truncate()
         json.dump(deleted, d, indent=4, ensure_ascii=False)
@@ -88,12 +91,14 @@ def restore():
         json.dump(data, f, indent=4, ensure_ascii=False,)
     return request.json
 
+# RETURNS JSON of all deleted objects
 @app.route('/getdeleted', methods = ['GET'])
 def getdeleted():
     with open('app/data/deleted.json', 'r+', encoding='utf-8') as f:
         res = json.load(f)
-        return(res)
+        return res
 
+# Returns all objects in database
 @app.route('/view', methods = ['GET', 'POST'])
 def view():
     if request.method == 'POST':
