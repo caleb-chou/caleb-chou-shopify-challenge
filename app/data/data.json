@@ -1,8 +1,8 @@
 {
-    "124": {
-        "ID": 124,
-        "NAME": "Item",
+    "1": {
         "DESCRIPTION": "Some item",
+        "ID": "1",
+        "NAME": "Item",
         "QUANTITY": 100,
         "TAGS": [
             "NEW",
@@ -10,10 +10,10 @@
             "VEGETARIAN"
         ]
     },
-    "123": {
-        "ID": 123,
-        "NAME": "Item",
+    "11": {
         "DESCRIPTION": "Some item",
+        "ID": "11",
+        "NAME": "Item",
         "QUANTITY": 100,
         "TAGS": [
             "NEW",
@@ -21,22 +21,11 @@
             "VEGETARIAN"
         ]
     },
-    "125": {
-        "ID": 125,
-        "NAME": "Item",
+    "111": {
         "DESCRIPTION": "Some item",
-        "QUANTITY": 100,
-        "TAGS": [
-            "NEW",
-            "PRODUCE",
-            "VEGETARIAN"
-        ]
-    },
-    "126": {
-        "ID": "126",
+        "ID": "111",
         "NAME": "Item",
-        "DESCRIPTION": "Some item",
-        "QUANTITY": 100,
+        "QUANTITY": 101,
         "TAGS": [
             "NEW",
             "PRODUCE",
